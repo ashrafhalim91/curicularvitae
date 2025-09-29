@@ -1,1 +1,1069 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ahmad Ashraf Bin Abdul Halim | Academic Profile</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <style>
+    :root {
+      --primary: #2c3e50;
+      --primary-light: #34495e;
+      --primary-dark: #1a252f;
+      --accent: #3498db;
+      --accent-light: #5dade2;
+      --light: #f8f9fa;
+      --dark: #2c3e50;
+      --gray: #7f8c8d;
+      --gray-light: #ecf0f1;
+      --gray-dark: #34495e;
+      --transition: all 0.3s ease;
+    }
 
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--light);
+      color: var(--dark);
+      font-family: 'Montserrat', sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    ::selection {
+      background: var(--accent);
+      color: white;
+    }
+
+    /* Navigation */
+    nav {
+      background: var(--primary);
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 3rem;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      transition: var(--transition);
+    }
+
+    nav.scrolled {
+      padding: 1rem 3rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    }
+
+    nav .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+      color: white;
+      font-family: 'Quicksand', sans-serif;
+    }
+
+    nav .logo span {
+      color: var(--accent-light);
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      font-weight: 600;
+      letter-spacing: 1px;
+      transition: var(--transition);
+      position: relative;
+      padding: 0.5rem 0;
+    }
+
+    nav ul li a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      transition: var(--transition);
+    }
+
+    nav ul li a:hover::after,
+    nav ul li a.active::after {
+      width: 100%;
+    }
+
+    nav ul li a:hover,
+    nav ul li a.active {
+      color: var(--accent-light);
+    }
+
+    .hamburger {
+      display: none;
+      cursor: pointer;
+      z-index: 1001;
+    }
+
+    .hamburger div {
+      width: 25px;
+      height: 3px;
+      background: white;
+      margin: 5px;
+      transition: var(--transition);
+    }
+
+    /* Hero Section */
+    .hero {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 100px 2rem 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+      color: white;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      padding: 2rem;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      backdrop-filter: blur(5px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
+      color: white;
+      font-family: 'Quicksand', sans-serif;
+    }
+
+    .hero h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+      color: var(--accent-light);
+      font-weight: 400;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .hero-image {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid white;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      margin-bottom: 2rem;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.8rem 1.5rem;
+      background: var(--accent);
+      color: white;
+      text-decoration: none;
+      border-radius: 30px;
+      font-weight: 600;
+      transition: var(--transition);
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+
+    .btn:hover {
+      background: var(--accent-light);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 2px solid white;
+      color: white;
+      margin-left: 1rem;
+    }
+
+    .btn-outline:hover {
+      background: white;
+      color: var(--primary);
+    }
+
+    /* Sections */
+    section {
+      display: none;
+      opacity: 0;
+      transition: opacity 0.8s ease-in-out, transform 0.5s ease;
+      transform: translateY(30px);
+      max-width: 1000px;
+      margin: 50px auto;
+      padding: 40px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+      border-left: 5px solid var(--accent);
+    }
+
+    section.active {
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .section-title {
+      font-size: 1.8rem;
+      font-weight: bold;
+      margin-bottom: 20px;
+      color: var(--primary);
+      position: relative;
+      display: inline-block;
+      font-family: 'Quicksand', sans-serif;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 50px;
+      height: 3px;
+      background: var(--accent);
+      border-radius: 3px;
+    }
+
+    .section-content {
+      margin-bottom: 20px;
+      line-height: 1.6;
+      color: var(--dark);
+    }
+
+    .list {
+      padding-left: 0;
+      list-style: none;
+    }
+
+    .list li {
+      position: relative;
+      padding-left: 30px;
+      margin-bottom: 15px;
+    }
+
+    .list li::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: bold;
+    }
+
+    .timeline {
+      position: relative;
+      padding-left: 30px;
+      margin-bottom: 30px;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 7px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: var(--gray-light);
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 30px;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -30px;
+      top: 5px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: 2px solid white;
+      box-shadow: 0 0 0 2px var(--accent);
+    }
+
+    .timeline-date {
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 5px;
+    }
+
+    .timeline-title {
+      font-weight: bold;
+      margin-bottom: 5px;
+      color: var(--dark);
+    }
+
+    .timeline-subtitle {
+      font-style: italic;
+      color: var(--gray);
+      margin-bottom: 10px;
+    }
+
+    .skills-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-bottom: 30px;
+    }
+
+    .skill {
+      background: var(--gray-light);
+      color: var(--primary);
+      padding: 8px 15px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: var(--transition);
+    }
+
+    .skill:hover {
+      background: var(--accent);
+      color: white;
+      transform: translateY(-3px);
+    }
+
+    .project-card {
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      margin-bottom: 30px;
+      transition: var(--transition);
+      border: 1px solid var(--gray-light);
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      border-color: var(--accent-light);
+    }
+
+    .project-img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .project-content {
+      padding: 20px;
+    }
+
+    .project-title {
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: var(--primary);
+    }
+
+    .project-description {
+      margin-bottom: 15px;
+      color: var(--gray);
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .project-tag {
+      background: var(--gray-light);
+      color: var(--primary);
+      padding: 5px 10px;
+      border-radius: 15px;
+      font-size: 0.8rem;
+    }
+
+    .publication-item {
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px dashed #e0e0e0;
+    }
+
+    .publication-title {
+      font-weight: bold;
+      margin-bottom: 5px;
+      color: var(--dark);
+    }
+
+    .publication-authors {
+      font-style: italic;
+      color: var(--gray);
+      margin-bottom: 5px;
+    }
+
+    .publication-link {
+      color: var(--accent);
+      text-decoration: none;
+      transition: var(--transition);
+      display: inline-block;
+      font-weight: 600;
+    }
+
+    .publication-link:hover {
+      color: var(--accent-light);
+      text-decoration: underline;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+
+    .contact-item {
+      flex: 1;
+      min-width: 200px;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      text-align: center;
+      transition: var(--transition);
+      border: 1px solid var(--gray-light);
+    }
+
+    .contact-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+
+    .contact-icon {
+      font-size: 2rem;
+      color: var(--accent);
+      margin-bottom: 15px;
+    }
+
+    .contact-title {
+      font-weight: bold;
+      margin-bottom: 5px;
+      color: var(--primary);
+    }
+
+    /* Table styles */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+    }
+
+    th, td {
+      padding: 1rem;
+      text-align: left;
+      border-bottom: 1px solid var(--gray-light);
+    }
+
+    th {
+      background-color: var(--primary);
+      color: white;
+    }
+
+    tr:nth-child(even) {
+      background-color: rgba(52, 152, 219, 0.05);
+    }
+
+    .table-responsive {
+      overflow-x: auto;
+    }
+
+    /* Stats */
+    .stats-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+
+    .stat-item {
+      flex: 1;
+      min-width: 150px;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      text-align: center;
+      transition: var(--transition);
+      border: 1px solid var(--gray-light);
+    }
+
+    .stat-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+
+    .stat-number {
+      font-size: 2rem;
+      font-weight: bold;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+
+    .stat-label {
+      font-size: 0.9rem;
+      color: var(--gray);
+    }
+
+    /* Footer */
+    footer {
+      background: var(--primary-dark);
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 2rem;
+    }
+
+    .social-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: var(--primary-light);
+      color: white;
+      font-size: 1.5rem;
+      transition: var(--transition);
+      text-decoration: none;
+    }
+
+    .social-link:hover {
+      background: var(--accent);
+      transform: translateY(-5px);
+    }
+
+    .scopus {
+      background: #e9711c;
+    }
+
+    .linkedin {
+      background: #0077b5;
+    }
+
+    .researchgate {
+      background: #00ccbb;
+    }
+
+    .googlescholar {
+      background: #4285f4;
+    }
+
+    .orcid {
+      background: #a6ce39;
+    }
+
+    .footer-text {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 900px) {
+      nav {
+        padding: 15px 20px;
+      }
+
+      nav ul {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 70px);
+        background: var(--primary);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+        transition: var(--transition);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      }
+
+      nav ul.active {
+        left: 0;
+      }
+
+      .hamburger {
+        display: block;
+      }
+
+      .hamburger.active div:nth-child(1) {
+        transform: rotate(-45deg) translate(-5px, 6px);
+      }
+
+      .hamburger.active div:nth-child(2) {
+        opacity: 0;
+      }
+
+      .hamburger.active div:nth-child(3) {
+        transform: rotate(45deg) translate(-5px, -6px);
+      }
+
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+
+      .hero h2 {
+        font-size: 1.2rem;
+      }
+
+      section {
+        padding: 30px 20px;
+        margin: 30px 20px;
+      }
+      
+      .social-links {
+        flex-wrap: wrap;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav id="navbar">
+    <div class="logo">Ahmad <span>Ashraf</span></div>
+    <ul class="nav-links">
+      <li><a onclick="showSection('about')" class="active">About</a></li>
+      <li><a onclick="showSection('education')">Education</a></li>
+      <li><a onclick="showSection('expertise')">Expertise</a></li>
+      <li><a onclick="showSection('experience')">Experience</a></li>
+      <li><a onclick="showSection('publications')">Publications</a></li>
+      <li><a onclick="showSection('achievements')">Achievements</a></li>
+      <li><a onclick="showSection('contact')">Contact</a></li>
+    </ul>
+    <div class="hamburger">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </nav>
+
+  <div class="hero">
+    <div class="hero-content">
+      <img src="c:/Users/DELL/Downloads/WhatsApp Image 2025-09-29 at 16.13.06.jpeg" alt="Ahmad Ashraf" class="hero-image">
+      <h1>Ahmad Ashraf Bin Abdul Halim</h1>
+      <h2>Lecturer & Researcher at Universiti Malaysia Perlis</h2>
+      <p>Specializing in Machine Learning, Internet of Things (IoT), and Wireless Sensor Network (WSN) technologies with extensive experience in academic teaching and research.</p>
+      <div>
+        <a href="#contact" class="btn">Contact Me</a>
+        <a onclick="showSection('publications')" class="btn btn-outline">View Publications</a>
+      </div>
+    </div>
+  </div>
+
+  <section id="about" class="active">
+    <div class="section-title">About Me</div>
+    <div class="section-content">
+      I am presently employed at Universiti Malaysia Perlis (UniMAP) as a lecturer and researcher within the Faculty of Electronic Engineering & Technology (FKTEN). I successfully completed my doctoral studies in August 2023, having obtained my Master of Science in Computer Engineering from UniMAP in 2017. My academic journey commenced with a Bachelor's Degree in Mechatronic Engineering, which I earned in 2014. My research pursuits primarily revolve around Machine Learning, Internet of Things (IoT), and Wireless Sensor Network (WSN) technologies.
+    </div>
+    
+    <div class="stats-container">
+      <div class="stat-item">
+        <div class="stat-number">2</div>
+        <div class="stat-label">ISI Journals</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">5</div>
+        <div class="stat-label">Scopus Journals</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">2</div>
+        <div class="stat-label">Conferences</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">80</div>
+        <div class="stat-label">Google Scholar Citations</div>
+      </div>
+    </div>
+    
+    <div class="section-title">Professional Memberships</div>
+    <div class="section-content">
+      <ul class="list">
+        <li>Graduate Member of Board Engineer Malaysia (BEM) since 23rd December 2014 (Reg. No: GE-96283)</li>
+        <li>Graduate Technologist (MBOT) since 23rd December 2014 (Reg. No: GT21062003)</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="section-title">Education</div>
+    
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-date">2023</div>
+        <div class="timeline-title">Doctor of Philosophy</div>
+        <div class="timeline-subtitle">Universiti Malaysia Perlis</div>
+      </div>
+      
+      <div class="timeline-item">
+        <div class="timeline-date">2017</div>
+        <div class="timeline-title">Master of Engineering (Computer Engineering)</div>
+        <div class="timeline-subtitle">Universiti Malaysia Perlis</div>
+      </div>
+      
+      <div class="timeline-item">
+        <div class="timeline-date">2014</div>
+        <div class="timeline-title">Bachelor of Engineering (Mechatronic Engineering)</div>
+        <div class="timeline-subtitle">Universiti Malaysia Perlis</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="expertise">
+    <div class="section-title">Expertise Areas</div>
+    <div class="skills-container">
+      <div class="skill">Machine Learning</div>
+      <div class="skill">Internet of Things (IoT)</div>
+      <div class="skill">Wireless Sensor Networks</div>
+      <div class="skill">Computer Engineering</div>
+      <div class="skill">Mechatronic Engineering</div>
+      <div class="skill">Artificial Intelligence</div>
+      <div class="skill">Data Analysis</div>
+      <div class="skill">Embedded Systems</div>
+    </div>
+    
+    <div class="section-title">Teaching Experience</div>
+    <div class="table-responsive">
+      <table>
+        <thead>
+          <tr>
+            <th>Academic Session</th>
+            <th>Course Code</th>
+            <th>Course Name</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>2022/2023</td>
+            <td>NMK 44403</td>
+            <td>Engineers Technologist in Society</td>
+          </tr>
+          <tr>
+            <td>2022/2023</td>
+            <td>NMK 21303</td>
+            <td>Analog Electronic 2</td>
+          </tr>
+          <tr>
+            <td>2017/2018</td>
+            <td>EKT 212</td>
+            <td>Principle of Measurement and Instrumentation (Coordinator)</td>
+          </tr>
+          <tr>
+            <td>2017/2018</td>
+            <td>EKT 303</td>
+            <td>Principle of Computer Architecture</td>
+          </tr>
+          <tr>
+            <td>2017/2018</td>
+            <td>EQT221</td>
+            <td>Discrete Mathematics and Algebra</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="section-title">Professional Experience</div>
+    
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-date">Current</div>
+        <div class="timeline-title">Lecturer & Researcher</div>
+        <div class="timeline-subtitle">Faculty of Electronic Engineering & Technology, Universiti Malaysia Perlis</div>
+        <div class="section-content">
+          Teaching various electronic engineering courses and conducting research in Machine Learning, IoT, and WSN technologies.
+        </div>
+      </div>
+    </div>
+    
+    <div class="section-title">Administrative Posts</div>
+    <div class="table-responsive">
+      <table>
+        <thead>
+          <tr>
+            <th>Position</th>
+            <th>Event/Organization</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Team Manager</td>
+            <td>FKTEN in Karnival Sukan UniMAP (KSU) 2023</td>
+            <td>23rd – 25th June 2023</td>
+          </tr>
+          <tr>
+            <td>Committee</td>
+            <td>Students Affair FKTEN</td>
+            <td>2023 – current</td>
+          </tr>
+          <tr>
+            <td>Committee (Internal and Technical)</td>
+            <td>FKTEN</td>
+            <td>2023 – current</td>
+          </tr>
+          <tr>
+            <td>Team Manager</td>
+            <td>SCCE in Inter PPK Sport Games 2017</td>
+            <td>1st – 3rd December 2017</td>
+          </tr>
+          <tr>
+            <td>Team Manager</td>
+            <td>Young Inventor Challenge 2017</td>
+            <td>24th July 2017</td>
+          </tr>
+          <tr>
+            <td>Assistant Principal</td>
+            <td>Tunku Abdul Rahman Residential College</td>
+            <td>November 2017 - current</td>
+          </tr>
+          <tr>
+            <td>Secretariat</td>
+            <td>UniMAP Convocation Dinner</td>
+            <td>27th October 2017</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="publications">
+    <div class="section-title">Publications</div>
+    
+    <div class="section-title">Research Profile Links</div>
+    <div class="section-content">
+      <p><a href="https://www.researchgate.net/profile/Ahmad-Ashraf-Abdul-Halim" target="_blank" class="publication-link">ResearchGate Profile</a></p>
+    </div>
+    
+    <div class="section-title">Selected Publications</div>
+    
+    <div class="publication-item">
+      <div class="publication-title">UWB-Based Early Breast Cancer Existence Prediction Using Artificial Intelligence for Large Data Set</div>
+      <div class="publication-authors">Halim, A. A. A., Veeraperumal, V., Andrew, A. M., Yasin, M. N. M., Zahir Ahmad, M.Z.Z., Hossain, K., Rahim, H.A., Bari, B.S., Kamal, F.</div>
+      <div class="section-content">Journal of Advanced Research in Applied Sciences and Engineering Technology, 2023 (Scopus)</div>
+    </div>
+    
+    <div class="publication-item">
+      <div class="publication-title">Optimized Intelligent Classifier for Early Breast Cancer Detection Using Ultra - Wide Band Transceiver</div>
+      <div class="publication-authors">Halim, A. A. A., Andrew, A. M., Mustafa, W. A., Yasin, M. N. M., Jusoh, M., Veeraperumal, V., Rahman, M. A. A., Zamin, N., Mary, M. R., & Khatun, S.</div>
+      <div class="section-content">Diagnostics, 2022 (ISI – Q2 Paper)</div>
+    </div>
+    
+    <div class="publication-item">
+      <div class="publication-title">Existing and Emerging Breast Cancer Detection Technologies and Its Challenges : A Review</div>
+      <div class="publication-authors">Halim, A. A. A., Andrew, A. M., Yasin, M. N. M., Rahman, M. A. A., Jusoh, M., Veeraperumal, V., Rahim, H. A., Illahi, U., Khalis, M., Karim, A., & Scavino, E.</div>
+      <div class="section-content">MDPI Applied Science, 2021 (ISI – Q2 Paper)</div>
+    </div>
+    
+    <div class="publication-item">
+      <div class="publication-title">Internet of things technology for greenhouse monitoring and management system based on wireless sensor network</div>
+      <div class="publication-authors">A. A. A. Halim, N. M. Hassan, A. Zakaria, L. M. Kamarudin, and A. H. A. Bakar</div>
+      <div class="section-content">ARPN Journal of Engineering and Applied Sciences, 2016</div>
+    </div>
+  </section>
+
+  <section id="achievements">
+    <div class="section-title">Achievements & Awards</div>
+    
+    <div class="table-responsive">
+      <table>
+        <thead>
+          <tr>
+            <th>Year</th>
+            <th>Award</th>
+            <th>Event</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>2023</td>
+            <td>Bronze Medal</td>
+            <td>Ekspo Rekacipta (EREKA 2023), UniMAP, Perlis - Title: UniMAP Smart Security Gate System Based IoT</td>
+          </tr>
+          <tr>
+            <td>2016</td>
+            <td>Gold Medal</td>
+            <td>The International Engineering Invention Innovation Exhibition (I-ENVEX 2016), UniMAP, Perlis - Title: Automated Scheduling Based on Plant Growth for Greenhouse Management System</td>
+          </tr>
+          <tr>
+            <td>2016</td>
+            <td>Excellent Award</td>
+            <td>The International Engineering Invention Innovation Exhibition (I-ENVEX 2016), UniMAP, Perlis - Title: Automated Scheduling Based on Plant Growth for Greenhouse Management System</td>
+          </tr>
+          <tr>
+            <td>2016</td>
+            <td>Silver Medal</td>
+            <td>International Science, Technology and Engineering Expo (I-STEEx) UNIMAS, Sarawak - Title: Automated Scheduling Based on Plant Growth for Greenhouse Management System</td>
+          </tr>
+          <tr>
+            <td>2015</td>
+            <td>Scholarship</td>
+            <td>Awarded Ministry of Higher Education (MOHE) Scholarship and UniMAP Fellowship to pursuit Msc Course</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="section-title">Contact Information</div>
+    
+    <div class="contact-info">
+      <div class="contact-item">
+        <div class="contact-icon">
+          <i class="fas fa-envelope"></i>
+        </div>
+        <div class="contact-title">Email</div>
+        <div class="section-content">ashrafhalim@unimap.edu.my</div>
+      </div>
+      
+      <div class="contact-item">
+        <div class="contact-icon">
+          <i class="fas fa-phone"></i>
+        </div>
+        <div class="contact-title">Phone</div>
+        <div class="section-content">+604-988 5509 / 5515<br>+6013-6351488</div>
+      </div>
+      
+      <div class="contact-item">
+        <div class="contact-icon">
+          <i class="fas fa-university"></i>
+        </div>
+        <div class="contact-title">University</div>
+        <div class="section-content">Universiti Malaysia Perlis</div>
+      </div>
+      
+      <div class="contact-item">
+        <div class="contact-icon">
+          <i class="fas fa-map-marker-alt"></i>
+        </div>
+        <div class="contact-title">Location</div>
+        <div class="section-content">Paulu Putra Campus, 02600 Arau, Perlis, Malaysia</div>
+      </div>
+    </div>
+    
+    <div class="section-title">Position</div>
+    <div class="section-content">
+      <ul class="list">
+        <li>Lecturer & Researcher</li>
+        <li>Faculty of Electronic Engineering & Technology, UniMAP</li>
+        <li>Expertise: Machine Learning, Internet of Things (IoT), Wireless Sensor Networks</li>
+      </ul>
+    </div>
+  </section>
+
+  <footer>
+    <div class="social-links">
+      <a href="https://www.scopus.com/authid/detail.uri?authorId=57216323171" target="_blank" class="social-link scopus">
+        <i class="fas fa-book"></i>
+      </a>
+      <a href="https://www.linkedin.com/in/ahmad-ashraf-abdul-halim-6b2a76100/" target="_blank" class="social-link linkedin">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+      <a href="https://www.researchgate.net/profile/Ahmad-Ashraf-Abdul-Halim" target="_blank" class="social-link researchgate">
+        <i class="fab fa-researchgate"></i>
+      </a>
+      <a href="https://scholar.google.com/citations?user=-Ifemp0AAAAJ&hl=en" target="_blank" class="social-link googlescholar">
+        <i class="fas fa-graduation-cap"></i>
+      </a>
+      <a href="https://orcid.org/0000-0002-6152-1964" target="_blank" class="social-link orcid">
+        <i class="fab fa-orcid"></i>
+      </a>
+    </div>
+    <p class="footer-text">© 2023 Ahmad Ashraf Bin Abdul Halim. All Rights Reserved.</p>
+    <p class="footer-text">Faculty of Electronic Engineering & Technology, Universiti Malaysia Perlis</p>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      navLinks.classList.toggle('active');
+    });
+
+    // Close mobile menu when clicking a link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navLinks.classList.remove('active');
+      });
+    });
+
+    // Navbar scroll effect
+    window.addEventListener('scroll', () => {
+      const navbar = document.getElementById('navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
+    // Show section function
+    function showSection(id) {
+      document.querySelectorAll('section').forEach(section => {
+        section.classList.remove('active');
+      });
+      
+      document.querySelectorAll('.nav-links a').forEach(link => {
+        link.classList.remove('active');
+      });
+      
+      document.getElementById(id).classList.add('active');
+      
+      // Add active class to the clicked nav link
+      document.querySelectorAll('.nav-links a').forEach(link => {
+        if (link.getAttribute('onclick').includes(id)) {
+          link.classList.add('active');
+        }
+      });
+      
+      window.scrollTo({ top: document.getElementById(id).offsetTop - 80, behavior: 'smooth' });
+    }
+  </script>
+</body>
+</html>
